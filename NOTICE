@@ -1,0 +1,15 @@
+=========================================================================
+==  NOTICE file for the builders git repo                              ==
+=========================================================================
+
+Upstream dependencies include:
+
+- CentOS 6 is licensed under GPL v2
+
+- The Docker Official image for Golang is licensed under BSD 3
+(https://github.com/docker-library/golang/blob/master/LICENSE)
+
+As with all Docker images, these likely also contain other software which
+may be under other licenses (such as Bash, etc from the base distribution,
+along with any direct or indirect dependencies of the primary software being
+contained).

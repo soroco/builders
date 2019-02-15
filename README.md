@@ -1,0 +1,1 @@
+This is a git repo for Docker images used by Soroco.
