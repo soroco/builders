@@ -18,6 +18,7 @@ FROM golang:1.12
 MAINTAINER Manthan Sharma <manthan.sharma@soroco.com>
 
 ENV PROTOC_GEN_VER v1.3.1
+ENV BINDATA_VER v3.1.1
 
 RUN apt-get update && \
     apt-get install -y unzip git make openssh-client sudo && \
@@ -38,6 +39,9 @@ RUN apt-get update && \
     unzip protoc-3.7.0-linux-x86_64.zip bin/protoc -d protoc && \
     mv protoc/bin/protoc /usr/local/bin && \
     rm -r protoc-3.7.0-linux-x86_64.zip protoc && \
+    go get -d -u github.com/go-bindata/go-bindata && \
+    git -C "$(go env GOPATH)"/src/github.com/go-bindata/go-bindata checkout $BINDATA_VER && \
+    go install github.com/go-bindata/go-bindata && \
     go get -d -u github.com/golang/protobuf/protoc-gen-go && \
     git -C "$(go env GOPATH)"/src/github.com/golang/protobuf checkout $PROTOC_GEN_VER && \
     go install github.com/golang/protobuf/protoc-gen-go && \
