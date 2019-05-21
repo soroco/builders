@@ -14,12 +14,11 @@
 #
 #   Primary Author: Manthan Sharma <manthan.sharma@soroco.com>
 
-FROM dockershelf/python:3.6
+FROM python:3.6-slim
 MAINTAINER Manthan Sharma <manthan.sharma@soroco.com>
 
 RUN apt-get -y update \
-    && apt-get install -y apt-utils \
-    && apt-get install -y curl git lrzip gnupg2 \
+    && apt-get install -y apt-utils sudo curl git lrzip gnupg2 \
     && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
     && apt-get install -y nodejs \
     && curl -L https://www.npmjs.com/install.sh | sh \
@@ -27,4 +26,3 @@ RUN apt-get -y update \
     && tar --strip-components=1 -xvzf docker-18.09.3.tgz -C /usr/local/bin \
     && rm docker-18.09.3.tgz \
     && apt-get clean all
-
