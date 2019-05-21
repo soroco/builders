@@ -14,7 +14,7 @@
 #
 #   Primary Author: Manthan Sharma <manthan.sharma@soroco.com>
 
-FROM python:3.6-slim
+FROM dockershelf/python:3.6
 MAINTAINER Manthan Sharma <manthan.sharma@soroco.com>
 
 RUN apt-get -y update \
@@ -27,3 +27,4 @@ RUN apt-get -y update \
     && tar --strip-components=1 -xvzf docker-18.09.3.tgz -C /usr/local/bin \
     && rm docker-18.09.3.tgz \
     && apt-get clean all
+

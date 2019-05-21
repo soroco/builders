@@ -14,7 +14,7 @@
 #
 #   Primary Author: Manthan Sharma <manthan.sharma@soroco.com>
 
-FROM python:3.7-slim
+FROM dockershelf/python:3.7
 MAINTAINER Manthan Sharma <manthan.sharma@soroco.com>
 
 RUN apt-get -y update \
