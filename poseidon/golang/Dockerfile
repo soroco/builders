@@ -22,7 +22,7 @@ ENV BINDATA_VER v3.1.1
 ENV SQLBOILER_VER v3.2.0
 ENV SQLBOILER_CRDB_COMMIT f175c13
 RUN apt-get update && \
-    apt-get install -y rsyslog unzip git make openssh-client sudo python3 && \
+    apt-get install -y rsyslog unzip git make openssh-client sudo python3 libnss3-tools && \
     apt-get clean && \
     go get -u github.com/rakyll/gotest \
               golang.org/x/lint/golint && \
@@ -55,5 +55,9 @@ RUN apt-get update && \
     go get github.com/axw/gocov/gocov && \
     go get github.com/AlekSi/gocov-xml && \
     go get -u gopkg.in/matm/v1/gocov-html && \
+    wget https://dl.influxdata.com/influxdb/releases/influxdb_1.7.7_amd64.deb && \
+    sudo dpkg -i influxdb_1.7.7_amd64.deb && \
+    wget https://github.com/square/ghostunnel/releases/download/v1.4.1/ghostunnel-v1.4.1-linux-amd64-with-pkcs11 -O $GOPATH/bin/ghostunnel && \
+    wget https://github.com/FiloSottile/mkcert/releases/download/v1.3.0/mkcert-v1.3.0-linux-amd64 -O $GOPATH/bin/mkcert && \
     chmod 0755 -R /usr/local/bin/ "$(go env GOPATH)"/bin && \
     chmod 0777 -R /go/pkg
