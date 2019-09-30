@@ -49,4 +49,4 @@ RUN apt-get update && \
 
 WORKDIR /proto
 
-ENTRYPOINT task protoc > /proto/docker_output.log
+ENTRYPOINT task protoc
