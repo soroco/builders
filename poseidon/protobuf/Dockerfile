@@ -21,6 +21,7 @@ ENV GO_VER 1.12.7
 ENV PROTOC_VER 3.7.0
 ENV PROTOC_GEN_VER v1.3.1
 ENV PROTOC_GEN_WEB_VER 1.0.3
+ENV PYTHON_GRPC_IO_VER 1.20.0
 
 RUN apt-get update && \
     apt install wget unzip libatomic1 && \
@@ -41,7 +42,8 @@ RUN apt-get update && \
     wget -qO /usr/local/bin/protoc-gen-grpc-web https://github.com/grpc/grpc-web/releases/download/$PROTOC_GEN_WEB_VER/protoc-gen-grpc-web-$PROTOC_GEN_WEB_VER-linux-x86_64 && \
     # DOWNLOAD TASK
     curl -sL https://taskfile.dev/install.sh | sh && \
-    python -m pip install grpcio grpcio-tools && \
+    # DOWNLOAD AND INSTALL PYTHON gRPC-IO
+    python -m pip install "grpcio==$PYTHON_GRPC_IO_VER" "grpcio-tools==$PYTHON_GRPC_IO_VER" && \
     chmod +x /usr/local/bin/protoc && \
     cp /root/go/bin/protoc-gen-go /usr/local/bin/ && \
     chmod +x /usr/local/bin/protoc-gen-go && \
