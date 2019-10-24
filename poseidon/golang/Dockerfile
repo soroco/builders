@@ -49,7 +49,7 @@ RUN apt-get update && \
     go get -d -u github.com/glerchundi/sqlboiler-crdb && \
     git -C "$(go env GOPATH)"/src/github.com/glerchundi/sqlboiler-crdb checkout $SQLBOILER_CRDB_COMMIT && \
     go install github.com/glerchundi/sqlboiler-crdb && \
-    wget -qO /usr/local/bin/protoc-gen-grpc-web https://github.com/grpc/grpc-web/releases/download/1.0.3/protoc-gen-grpc-web-1.0.3-linux-x86_64 && \
+    wget -qO /usr/local/bin/protoc-gen-grpc-web https://github.com/grpc/grpc-web/releases/download/1.0.6/protoc-gen-grpc-web-1.0.6-linux-x86_64 && \
     curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s 2.0.0 && \
     go get github.com/jstemmer/go-junit-report && \
     go get github.com/axw/gocov/gocov && \
