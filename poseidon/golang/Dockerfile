@@ -21,12 +21,14 @@ ENV PROTOC_GEN_VER v1.3.1
 ENV BINDATA_VER v3.1.1
 ENV SQLBOILER_VER v3.2.0
 ENV SQLBOILER_CRDB_COMMIT f175c13
+ENV DEP_RELEASE_TAG v0.5.0
 RUN apt-get update && \
     apt-get install -y rsyslog unzip git make openssh-client sudo python3 libnss3-tools && \
     apt-get clean && \
     go get -u github.com/rakyll/gotest \
               golang.org/x/lint/golint && \
     curl -sL https://taskfile.dev/install.sh | sh && \
+    curl -sL https://raw.githubusercontent.com/golang/dep/master/install.sh | sh && \
     wget -qO- https://binaries.cockroachdb.com/cockroach-v2.1.6.linux-amd64.tgz | tar xvz && \
     cp cockroach-v2.1.6.linux-amd64/cockroach /usr/local/bin && \
     rm -rf cockroach-v2.1.6.linux-amd64 && \
@@ -39,6 +41,9 @@ RUN apt-get update && \
     rm -r protoc-3.7.0-linux-x86_64.zip protoc && \
     go get -d -u github.com/volatiletech/sqlboiler && \
     git -C "$(go env GOPATH)"/src/github.com/volatiletech/sqlboiler checkout $SQLBOILER_VER && \
+    cd "$(go env GOPATH)"/src/github.com/volatiletech/sqlboiler && \
+    go get -d ./... && \
+    cd - && \
     go install github.com/volatiletech/sqlboiler && \
     go get -d -u github.com/go-bindata/go-bindata && \
     git -C "$(go env GOPATH)"/src/github.com/go-bindata/go-bindata checkout $BINDATA_VER && \
