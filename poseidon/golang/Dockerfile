@@ -51,11 +51,11 @@ RUN apt-get update && \
     go get -d -u github.com/golang/protobuf/protoc-gen-go && \
     git -C "$(go env GOPATH)"/src/github.com/golang/protobuf checkout $PROTOC_GEN_VER && \
     go install github.com/golang/protobuf/protoc-gen-go && \
-    go get -d -u github.com/glerchundi/sqlboiler-crdb && \
+    go get -d github.com/glerchundi/sqlboiler-crdb && \
     git -C "$(go env GOPATH)"/src/github.com/glerchundi/sqlboiler-crdb checkout $SQLBOILER_CRDB_COMMIT && \
     go install github.com/glerchundi/sqlboiler-crdb && \
     wget -qO /usr/local/bin/protoc-gen-grpc-web https://github.com/grpc/grpc-web/releases/download/1.0.6/protoc-gen-grpc-web-1.0.6-linux-x86_64 && \
-    curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s 2.0.0 && \
+    curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s v2.1.0 && \
     go get github.com/jstemmer/go-junit-report && \
     go get github.com/axw/gocov/gocov && \
     go get github.com/AlekSi/gocov-xml && \
