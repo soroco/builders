@@ -22,6 +22,7 @@ ENV BINDATA_VER v3.1.1
 ENV SQLBOILER_VER v3.2.0
 ENV SQLBOILER_CRDB_COMMIT f175c13
 ENV DEP_RELEASE_TAG v0.5.0
+ENV COCKROACH_DB_VER v19.2.0
 RUN apt-get update && \
     apt-get install -y rsyslog unzip git make openssh-client sudo python3 libnss3-tools && \
     apt-get clean && \
@@ -29,9 +30,9 @@ RUN apt-get update && \
               golang.org/x/lint/golint && \
     curl -sL https://taskfile.dev/install.sh | sh && \
     curl -sL https://raw.githubusercontent.com/golang/dep/master/install.sh | sh && \
-    wget -qO- https://binaries.cockroachdb.com/cockroach-v2.1.6.linux-amd64.tgz | tar xvz && \
-    cp cockroach-v2.1.6.linux-amd64/cockroach /usr/local/bin && \
-    rm -rf cockroach-v2.1.6.linux-amd64 && \
+    wget -qO- https://binaries.cockroachdb.com/cockroach-$COCKROACH_DB_VER.linux-amd64.tgz | tar xvz && \
+    cp cockroach-$COCKROACH_DB_VER.linux-amd64/cockroach /usr/local/bin && \
+    rm -rf cockroach-$COCKROACH_DB_VER.linux-amd64 && \
     wget -qO- https://github.com/golang-migrate/migrate/releases/download/v4.2.5/migrate.linux-amd64.tar.gz | tar xvz && \
     mv migrate.linux-amd64 /usr/local/bin/migrate && \
     rm -rf migrate.linux-amd64 && \
