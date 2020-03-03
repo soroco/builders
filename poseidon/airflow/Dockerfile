@@ -22,6 +22,10 @@ RUN apt-get -y update \
     && apt-get install -y apt-utils virtualenv default-libmysqlclient-dev gcc procps \
     && apt-get clean all
 
+# Add CockroachDB
+RUN wget -qO- https://binaries.cockroachdb.com/cockroach-v19.2.2.linux-amd64.tgz | tar xvz && \
+    cp -i cockroach-v19.2.2.linux-amd64/cockroach /usr/local/bin/ && \
+    chmod +x /usr/local/bin/cockroach
 
 RUN umask 022 && pip install pytest \
     && pip install black isort bandit safety
