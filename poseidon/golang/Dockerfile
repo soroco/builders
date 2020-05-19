@@ -25,6 +25,7 @@ ENV PROTOC_GRPC_WEB_VER 1.0.7
 
 ENV BINDATA_VER v3.16.0
 ENV SQLBOILER_VER v4.1.2
+ENV SQLBOILER_CRDB_COMMIT_ID d540ee5
 
 ENV COCKROACH_DB_VER v19.2.0
 ENV GOMIGRATE_VER v4.8.0
@@ -52,7 +53,7 @@ RUN apt-get update && \
     mv migrate.linux-amd64 /usr/local/bin/migrate && \
     GO111MODULE=on go get -u github.com/kevinburke/go-bindata/...@$BINDATA_VER && \
     GO111MODULE=on go get -u github.com/volatiletech/sqlboiler/v4@$SQLBOILER_VER && \
-    GO111MODULE=on go get -u github.com/glerchundi/sqlboiler-crdb/v4 && \
+    GO111MODULE=on go get -u github.com/glerchundi/sqlboiler-crdb/v4@$SQLBOILER_CRDB_COMMIT_ID && \
     wget -nv https://github.com/protocolbuffers/protobuf/releases/download/v$PROTOC_VER/protoc-$PROTOC_VER-linux-x86_64.zip && \
     unzip protoc-$PROTOC_VER-linux-x86_64.zip bin/protoc -d protoc && \
     mv protoc/bin/protoc /usr/local/bin && \
