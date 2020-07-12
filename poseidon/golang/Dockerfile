@@ -68,3 +68,6 @@ RUN apt-get update && \
     chmod 0755 -R /usr/local/bin/ "$(go env GOPATH)"/bin && \
     chmod 0777 -R /go/pkg
 
+RUN wget -nv https://releases.hashicorp.com/vault/1.4.3/vault_1.4.3_linux_amd64.zip && \
+    unzip vault_1.4.3_linux_amd64.zip && \
+    mv vault /usr/local/bin 
