@@ -69,7 +69,7 @@ RUN apt-get update && \
     go get github.com/AlekSi/gocov-xml && \
     go get -u gopkg.in/matm/v1/gocov-html && \
     curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s $GOSEC_VER && \
-    rm -rf migrate.linux-amd64 cockroach-$COCKROACH_DB_VER.linux-amd64 protoc-$PROTOC_VER-linux-x86_64.zip protoc influxdb_${INFLUXDB_VER}_amd64.deb && \
+    rm -rf migrate.linux-amd64 cockroach-$COCKROACH_DB_VER.linux-amd64 protoc-$PROTOC_VER-linux-x86_64.zip protoc influxdb_${INFLUXDB_VER}_amd64.deb vault_${VAULT_VER}_linux_amd64.zip && \
     chmod 0755 -R /usr/local/bin/ "$(go env GOPATH)"/bin && \
     chmod 0777 -R /go/pkg
 
