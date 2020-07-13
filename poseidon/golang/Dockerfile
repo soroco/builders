@@ -63,7 +63,7 @@ RUN apt-get update && \
     GO111MODULE=on go get -u github.com/golang/protobuf/protoc-gen-go@$PROTOC_GO_GEN_VER && \
     wget -nv https://releases.hashicorp.com/vault/$VAULT_VER/vault_${VAULT_VER}_linux_amd64.zip && \
     unzip vault_${VAULT_VER}_linux_amd64.zip && \
-    mv vault /usr/local/bin 
+    mv vault /usr/local/bin && \
     go get github.com/jstemmer/go-junit-report && \
     go get github.com/axw/gocov/gocov && \
     go get github.com/AlekSi/gocov-xml && \
