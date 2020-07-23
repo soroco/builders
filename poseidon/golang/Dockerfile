@@ -36,6 +36,8 @@ ENV MKCERT_VER v1.4.1
 
 ENV GOSEC_VER v2.1.0
 
+ENV VAULT_VER  1.4.3
+
 RUN apt-get update && \
     apt-get install -y rsyslog unzip git make openssh-client sudo python3 libnss3-tools && \
     apt-get clean && \
@@ -59,12 +61,15 @@ RUN apt-get update && \
     mv protoc/bin/protoc /usr/local/bin && \
     wget -nv -O /usr/local/bin/protoc-gen-grpc-web https://github.com/grpc/grpc-web/releases/download/$PROTOC_GRPC_WEB_VER/protoc-gen-grpc-web-$PROTOC_GRPC_WEB_VER-linux-x86_64 && \
     GO111MODULE=on go get -u github.com/golang/protobuf/protoc-gen-go@$PROTOC_GO_GEN_VER && \
+    wget -nv https://releases.hashicorp.com/vault/$VAULT_VER/vault_${VAULT_VER}_linux_amd64.zip && \
+    unzip vault_${VAULT_VER}_linux_amd64.zip && \
+    mv vault /usr/local/bin && \
     go get github.com/jstemmer/go-junit-report && \
     go get github.com/axw/gocov/gocov && \
     go get github.com/AlekSi/gocov-xml && \
     go get -u gopkg.in/matm/v1/gocov-html && \
     curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s $GOSEC_VER && \
-    rm -rf migrate.linux-amd64 cockroach-$COCKROACH_DB_VER.linux-amd64 protoc-$PROTOC_VER-linux-x86_64.zip protoc influxdb_${INFLUXDB_VER}_amd64.deb && \
+    rm -rf migrate.linux-amd64 cockroach-$COCKROACH_DB_VER.linux-amd64 protoc-$PROTOC_VER-linux-x86_64.zip protoc influxdb_${INFLUXDB_VER}_amd64.deb vault_${VAULT_VER}_linux_amd64.zip && \
     chmod 0755 -R /usr/local/bin/ "$(go env GOPATH)"/bin && \
     chmod 0777 -R /go/pkg
 
