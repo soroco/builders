@@ -39,7 +39,7 @@ ENV GOSEC_VER v2.1.0
 ENV VAULT_VER  1.4.3
 
 RUN apt-get update && \
-    apt-get install -y rsyslog unzip git make openssh-client sudo python3 libnss3-tools && \
+    apt-get install -y rsyslog unzip git make openssh-client sudo python3 libnss3-tools mingw-w64 && \
     apt-get clean && \
     go get -u github.com/rakyll/gotest \
               golang.org/x/lint/golint && \
