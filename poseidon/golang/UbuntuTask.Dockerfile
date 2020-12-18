@@ -4,4 +4,5 @@ LABEL docker_file="github.com/soroco/builders/poseidon/golang/UbuntuTask.Dockerf
 
 RUN apt-get update -y && \
     curl -sL https://taskfile.dev/install.sh | sh  && \
-    curl -fsSL https://get.docker.com | sh
+    curl -fsSL https://get.docker.com | sh && \
+    apt-get install -y lrzip
