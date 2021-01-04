@@ -16,6 +16,7 @@
 # 
 #   Primary Author: Naresh Bohra <naresh@soroco.com>
 
+LABEL docker_file="github.com/soroco/builders/blob/master/poseidon/airflow/Dockerfile"
 
 ARG PYTHON_BASE_IMAGE="python:3.6-slim-buster"
 FROM ${PYTHON_BASE_IMAGE} as main
