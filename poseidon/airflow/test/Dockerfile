@@ -160,4 +160,9 @@ RUN mkdir -pv /usr/share/man/man1 \
 RUN wget -qO- https://binaries.cockroachdb.com/cockroach-v19.2.2.linux-amd64.tgz | tar xvz && \
     cp -i cockroach-v19.2.2.linux-amd64/cockroach /usr/local/bin/ && \
     chmod +x /usr/local/bin/cockroach
+
+COPY requirements.txt /tmp/
+RUN pip install pip==20.2 && \
+    pip install -r /tmp/requirements.txt
+
 ENV PATH="/home/control_admin_azpcontainer/.local/bin/:/usr/local/bin:${PATH}"
