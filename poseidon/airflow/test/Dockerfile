@@ -16,6 +16,7 @@
 # 
 #   Primary Author: Naresh Bohra <naresh@soroco.com>
 
+LABEL docker_file="github.com/soroco/builders/blob/master/poseidon/airflow/Dockerfile"
 
 ARG PYTHON_BASE_IMAGE="python:3.6-slim-buster"
 FROM ${PYTHON_BASE_IMAGE} as main
@@ -160,4 +161,9 @@ RUN mkdir -pv /usr/share/man/man1 \
 RUN wget -qO- https://binaries.cockroachdb.com/cockroach-v19.2.2.linux-amd64.tgz | tar xvz && \
     cp -i cockroach-v19.2.2.linux-amd64/cockroach /usr/local/bin/ && \
     chmod +x /usr/local/bin/cockroach
+
+COPY requirements.txt /tmp/
+RUN pip install pip==20.2 && \
+    pip install -r /tmp/requirements.txt
+
 ENV PATH="/home/control_admin_azpcontainer/.local/bin/:/usr/local/bin:${PATH}"
