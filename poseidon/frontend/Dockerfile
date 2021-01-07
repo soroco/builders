@@ -7,6 +7,3 @@ MAINTAINER Pallav Jha "pallav dot jha at soroco.com"
 
 RUN curl -fsSL https://get.docker.com | sh \
  && apt-get install -y lrzip
-
-
-USER $USER_ID
