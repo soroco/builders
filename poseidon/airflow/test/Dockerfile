@@ -16,10 +16,10 @@
 # 
 #   Primary Author: Naresh Bohra <naresh@soroco.com>
 
-LABEL docker_file="github.com/soroco/builders/blob/master/poseidon/airflow/Dockerfile"
-
 ARG PYTHON_BASE_IMAGE="python:3.6-slim-buster"
 FROM ${PYTHON_BASE_IMAGE} as main
+
+LABEL docker_file="github.com/soroco/builders/blob/master/poseidon/airflow/Dockerfile"
 
 SHELL ["/bin/bash", "-o", "pipefail", "-e", "-u", "-x", "-c"]
 
@@ -153,6 +153,7 @@ RUN mkdir -pv /usr/share/man/man1 \
       unzip \
       vim \
       wget \
+      lrzip \
       ${ADDITIONAL_RUNTIME_DEPS} \
     && apt-get autoremove -yqq --purge \
     && apt-get clean \
@@ -160,7 +161,8 @@ RUN mkdir -pv /usr/share/man/man1 \
 
 RUN wget -qO- https://binaries.cockroachdb.com/cockroach-v19.2.2.linux-amd64.tgz | tar xvz && \
     cp -i cockroach-v19.2.2.linux-amd64/cockroach /usr/local/bin/ && \
-    chmod +x /usr/local/bin/cockroach
+    chmod +x /usr/local/bin/cockroach && \
+    curl -fsSL https://get.docker.com | sh
 
 COPY requirements.txt /tmp/
 RUN pip install pip==20.2 && \
