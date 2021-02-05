@@ -1,0 +1,13 @@
+{"name": "github.com/DATA-DOG/go-sqlmock", "licenceType": "BSD", "url":"https://github.com/DATA-DOG/go-sqlmock/tree/v1.4.1"}
+{"name": "soroco/missioncontrol/protobuff", "licenceType": "SOROCO"}
+{"name": "github.com/bmizerany/assert", "licenceType": "IGNORE"}
+{"name": "github.com/opencontainers/go-digest", "licenceType": "Apache-2.0"}
+{"name": "github.com/pascaldekloe/goe", "licenceType": "CC0-1.0"}
+{"name": "github.com/rcrowley/go-metrics", "licenceType": "BSD-2-Clause-FreeBSD"}
+{"name": "gopkg.in/hlandau/easymetric.v1", "licenceType": "IGNORE"}
+{"name": "gopkg.in/hlandau/measurable.v1", "licenceType": "IGNORE"}
+{"name": "github.com/goburrow/modbus", "licenceType": "BSD-3-Clause"}
+{"name": "github.com/harlow/kinesis-consumer", "licenceType": "MIT"}
+{"name": "github.com/miekg/dns", "licenceType": "BSD-3-Clause"}
+{"name": "github.com/couchbase/goutils", "licenceType": "Apache-2.0"}
+{"name": "github.com/wvanbergen/kazoo-go", "licenceType": "MIT"}
