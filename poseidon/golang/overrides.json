@@ -6,4 +6,3 @@
 {"name": "github.com/rcrowley/go-metrics", "licenceType": "BSD-2-Clause-FreeBSD"}
 {"name": "gopkg.in/hlandau/easymetric.v1", "licenceType": "IGNORE"}
 {"name": "gopkg.in/hlandau/measurable.v1", "licenceType": "IGNORE"}
-{"name": "github.com/kardianos/service", "licenceType": "Zlib"}
