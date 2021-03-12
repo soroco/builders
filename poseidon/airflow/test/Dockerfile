@@ -13,7 +13,7 @@
 #   limitations under the License.
 #
 # WARNING: THIS DOCKERFILE IS NOT INTENDED FOR PRODUCTION USE OR DEPLOYMENT.
-#
+# 
 #   Primary Author: Naresh Bohra <naresh@soroco.com>
 
 ARG PYTHON_BASE_IMAGE="python:3.6-slim-buster"
@@ -165,7 +165,7 @@ RUN wget -qO- https://binaries.cockroachdb.com/cockroach-v19.2.2.linux-amd64.tgz
     curl -fsSL https://get.docker.com | sh
 
 COPY requirements.txt /tmp/
-RUN pip install pip==20.2 wheel==0.36.2 && \
+RUN pip install pip==20.2 && \
     pip install -r /tmp/requirements.txt
 
 ENV PATH="/home/control_admin_azpcontainer/.local/bin/:/usr/local/bin:${PATH}"
