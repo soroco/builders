@@ -39,7 +39,7 @@ ENV GOSEC_VER v2.1.0
 ENV VAULT_VER  1.4.3
 
 RUN apt-get update && \
-    apt-get install -y rsyslog unzip git make openssh-client sudo python3 libnss3-tools mingw-w64 && \
+    apt-get install -y rsyslog unzip git make openssh-client sudo python3 libnss3-tools mingw-w64 asciidoctor && \
     apt-get clean && \
     go get -u github.com/rakyll/gotest \
               golang.org/x/lint/golint && \
@@ -69,7 +69,12 @@ RUN apt-get update && \
     go get github.com/AlekSi/gocov-xml && \
     go get -u gopkg.in/matm/v1/gocov-html && \
     curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s $GOSEC_VER && \
+    curl -o /usr/local/bin/go-licence-detector -L https://github.com/elastic/go-licence-detector/releases/download/v0.5.0/go-licence-detector && \
     rm -rf migrate.linux-amd64 cockroach-$COCKROACH_DB_VER.linux-amd64 protoc-$PROTOC_VER-linux-x86_64.zip protoc influxdb_${INFLUXDB_VER}_amd64.deb vault_${VAULT_VER}_linux_amd64.zip && \
     chmod 0755 -R /usr/local/bin/ "$(go env GOPATH)"/bin && \
     chmod 0777 -R /go/pkg
 
+COPY dependencies.asciidoc.tmpl /go-licence-detector-files/dependencies.asciidoc.tmpl
+COPY overrides.json /go-licence-detector-files/overrides.json
+COPY rules.json /go-licence-detector-files/rules.json
+COPY NOTICE.txt.tmpl /go-licence-detector-files/NOTICE.txt.tmpl
