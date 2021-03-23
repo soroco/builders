@@ -19,8 +19,8 @@ MAINTAINER Manthan Sharma <manthan.sharma@soroco.com>
 
 RUN apt-get update && \
     apt-get install git make && \
-    apt-get clean && \
     pip install pipenv && \
     curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
-    apt-get install -y nodejs && \
-    npm install --global prettier
+    apt-get install -y nodejs npm && \
+    npm install --global prettier@2.2.1 && \
+    apt-get clean
