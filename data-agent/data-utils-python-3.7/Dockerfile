@@ -18,6 +18,9 @@ FROM dockershelf/python:3.7
 MAINTAINER Manthan Sharma <manthan.sharma@soroco.com>
 
 RUN apt-get update && \
-    apt-get install git make && \
-    apt-get clean && \
-    pip install pipenv
+    apt-get install git make wget && \
+    curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+    apt-get install -y nodejs npm && \
+    apt-get clean
+
+RUN pip install poetry
