@@ -18,6 +18,7 @@ FROM golang:1.16
 LABEL maintainer="Scout Data Agent Team <data-agent@soroco.com>"
 
 ENV GOSEC_VER v2.7.0
+ENV STATICCHECKER_VER v0.1.4
 ENV NANCY_VER v1.0.20
 ENV NANCY_OS_ARCH linux-amd64
 
@@ -25,4 +26,5 @@ WORKDIR /go
 
 RUN curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s $GOSEC_VER && \
     curl -o ./bin/nancy -L https://github.com/sonatype-nexus-community/nancy/releases/download/$NANCY_VER/nancy-$NANCY_VER-$NANCY_OS_ARCH && \
-    chmod +x ./bin/nancy
+    chmod +x ./bin/nancy && \
+	go get honnef.co/go/tools/cmd/staticcheck@$STATICCHECKER_VER
