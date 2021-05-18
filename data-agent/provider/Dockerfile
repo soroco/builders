@@ -28,4 +28,4 @@ RUN curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh
     curl -o ./bin/nancy -L https://github.com/sonatype-nexus-community/nancy/releases/download/$NANCY_VER/nancy-$NANCY_VER-$NANCY_OS_ARCH && \
     chmod +x ./bin/nancy && \
 	go get honnef.co/go/tools/cmd/staticcheck@$STATICCHECKER_VER
-	
+
