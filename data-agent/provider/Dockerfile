@@ -27,5 +27,6 @@ WORKDIR /go
 RUN curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s $GOSEC_VER && \
     curl -o ./bin/nancy -L https://github.com/sonatype-nexus-community/nancy/releases/download/$NANCY_VER/nancy-$NANCY_VER-$NANCY_OS_ARCH && \
     chmod +x ./bin/nancy && \
-	go get honnef.co/go/tools/cmd/staticcheck@$STATICCHECKER_VER
+	go get honnef.co/go/tools/cmd/staticcheck@$STATICCHECKER_VER && \
+    chown -R 1000:1000 /go
 
