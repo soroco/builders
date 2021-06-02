@@ -326,7 +326,7 @@ tzlocal==1.5.1
 unicodecsv==0.14.1
 Unidecode==1.1.1
 uritemplate==3.0.1
-urllib3==1.25.10
+urllib3==1.26.5
 vertica-python==1.0.0
 virtualenv==20.0.31
 wcwidth==0.2.5
