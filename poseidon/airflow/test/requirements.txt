@@ -190,7 +190,7 @@ networkx==2.5
 nodeenv==1.5.0
 nteract-scrapbook==0.4.1
 ntlm-auth==1.5.0
-numpy==1.19.2
+numpy==1.22.0
 oscrypto==1.2.1
 packaging==20.4
 pandas==1.1.2
