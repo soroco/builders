@@ -14,13 +14,20 @@
 #
 #   Primary Author: Manthan Sharma <manthan.sharma@soroco.com>
 
-FROM dockershelf/python:3.9
+FROM dockershelf/python:3.9-stable
 MAINTAINER Manthan Sharma <manthan.sharma@soroco.com>
 
 RUN apt-get update && \
-    apt-get install git make wget && \
-    curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
-    apt-get install -y nodejs npm && \
+    apt-get install -y git make wget && \
     apt-get clean
-
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt-get update && \
+    apt-get install -y nodejs && \
+    apt-get clean
+RUN wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+    dpkg -i packages-microsoft-prod.deb
+RUN apt-get update && \
+    apt-get install -y mono-complete dotnet-sdk-6.0 clang libglib2.0-dev && \
+    apt-get clean
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
 RUN pip install poetry

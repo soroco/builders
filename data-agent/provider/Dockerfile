@@ -19,7 +19,7 @@ LABEL maintainer="Scout Data Agent Team <data-agent@soroco.com>"
 
 ENV GOSEC_VER v2.7.0
 ENV STATICCHECKER_VER v0.1.4
-ENV NANCY_VER v1.0.20
+ENV NANCY_VER v1.0.33
 ENV NANCY_OS_ARCH linux-amd64
 ENV SWAG_VER v1.8.1
 WORKDIR /go
