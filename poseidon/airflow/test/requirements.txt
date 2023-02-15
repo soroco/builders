@@ -330,7 +330,7 @@ urllib3==1.25.10
 vertica-python==1.0.0
 virtualenv==20.0.31
 wcwidth==0.2.5
-Werkzeug==0.16.1
+Werkzeug==2.2.3
 wrapt==1.12.1
 WTForms==2.3.3
 xmltodict==0.12.0
